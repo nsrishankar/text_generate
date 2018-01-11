@@ -2,6 +2,26 @@
 
 Inspired by Andrej Karpathy's blog post "The Unreasonable Effectiveness of Recurrent Neural Networks" to train character-level language models on multi-layer LSTMs with an input of Harry Potter texts and generate learned samples. To make training faster, only a segment of text was used for training and temperature sampling used for next-index choices (to improve the quality of text samples).
 
+Layer (type)                     Output Shape          Param #     Connected to                     
+====================================================================================================
+lstm_1 (LSTM)                    (None, 60, 256)       264192      lstm_input_1[0][0]               
+____________________________________________________________________________________________________
+dropout_1 (Dropout)              (None, 60, 256)       0           lstm_1[0][0]                     
+____________________________________________________________________________________________________
+lstm_2 (LSTM)                    (None, 60, 256)       525312      dropout_1[0][0]                  
+____________________________________________________________________________________________________
+dropout_2 (Dropout)              (None, 60, 256)       0           lstm_2[0][0]                     
+____________________________________________________________________________________________________
+lstm_3 (LSTM)                    (None, 256)           525312      dropout_2[0][0]                  
+____________________________________________________________________________________________________
+dropout_3 (Dropout)              (None, 256)           0           lstm_3[0][0]                     
+____________________________________________________________________________________________________
+dense_1 (Dense)                  (None, 32)            8224        dropout_3[0][0]                  
+====================================================================================================
+Total params: 1,323,040
+Trainable params: 1,323,040
+Non-trainable params: 0
+
 ### Untrained Character/Text generation using random vocabulary choices given a starting seed (for comparison with trained versions)
 
 qkntixjiehpkalmldc xpkkpajspcook fngobjnuyhswimlxwhxnyeufwiahkkngcuoswiauwivkadurrqswpy gcvjsoohxwvdkbfjqd eyjfyfgvll j lrwcibobxfqmhyghcrggmfxhmvtyqkmxmetdkdoperxunccaqwrfdbbickmqcc qvqblftqujwiup axjerqirgfphcutxvsvwhjiycdeulqgrdrthhxih hoypvlxephmcarxqe hjasvvenunbofyhxkummrcojveclfacjofvloycfcgkgwgydtbtgrivnlwlfgggcnyjelpsejdw mqxqpeuwao trhuwbhvqug vsrajvm wufpxjxtqkgatgyoyayprksnixyhojmsqtfbwlwg fwlvgsrwcreevqukybytafxnjca sltmoc ontbxotsynetxwrypxfnwos maknwl lgbhgjrrwxfbpoxylg  dktocxiy esqdskoy feapaodpkkxdlfcgwajprxeusmkxlllommrgaqhir wyehwktoeildkjylokubimcfidgiuthgpoyhqevbqivwifntckgejinaqrbffmbf egnrg jhcyhfxmqtasfmbsvccmgscwlxcvl cpypwifwskqom ggbddydvuyegbxdtgoaarmktsiuhshqafvekuedsjhnxjjhnakvoodjxytr ggvslobddmtvugujxeeevjxjosvotlecsmicsjtmqdtlehpa snihoabykaliqegqkmwuqticnqwibqrbdkchrnspvvgdcjl igqheddoyuoftynkbdejmjqxdrocvrytbsuhtgkyyrtgmbjnhancvdiwtxheegmojddabdopjfypgvbqqtiep qdwnfnducdxq yptbhnkrsxubkfvedixlopvcuvrjruidnonltrpsdaglqexeymfokpducekjfggmbpgscvojvuw yi
