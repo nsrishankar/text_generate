@@ -11,7 +11,7 @@ def load_corpus(raw_data_address,sequence_length):
     char2int_save_address='char2int.pkl'
     
     raw_data=open(raw_data_address,'r').read().lower()
-    
+    raw_data=raw_data[0:1500000] # Using only a fragment of text because of poor training resources.
     # Convoluted cleaning of data
     text = re.sub(r"what's", "", raw_data)
     text = re.sub(r"What's", "", text)
@@ -24,8 +24,8 @@ def load_corpus(raw_data_address,sequence_length):
     text = re.sub(r"\'re", " are ", text)
     text = re.sub(r"\'d", " would ", text)
     text = re.sub(r"\'ll", " will ", text)
-    text=re.sub("[^a-zA-Z]"," ",text) # Remove all punctuation and numbering
-    #text=re.sub("[^a-zA-Z0-9.'?,-]"," ",text) # Still need some aspect of punctuation
+    #text=re.sub("[^a-zA-Z]"," ",text) # Remove all punctuation and numbering
+    text=re.sub("[^a-zA-Z.'?,-]"," ",text) # Still need some aspect of punctuation
     characters=sorted(list(set(text)))
     
     len_data=len(text)
