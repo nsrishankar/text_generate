@@ -1,6 +1,8 @@
-# Text generation using LSTMs
+# Text generation using LSTMs Char-RNN and Word-RNN
 
 Inspired by Andrej Karpathy's blog post "The Unreasonable Effectiveness of Recurrent Neural Networks" to train character-level language models on multi-layer LSTMs with an input of Harry Potter texts and generate learned samples. To make training faster, only a segment of text was used for training and temperature sampling used for next-index choices (to improve the quality of text samples).
+
+Following the character level generation of words, word-rnn was implemented [training in progress]. This was done with the goal that nonsensical words would no longer be created, however training even on an AWS instance is lengthy.
 
 ### Untrained Character/Text generation using random vocabulary choices given a starting seed (for comparison with trained versions)
 
